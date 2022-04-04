@@ -1,0 +1,17 @@
+.nav {
+    grid-area: n;
+    background-color: coral;
+}
+
+.item{
+    color: wheat;
+}
+.item.active{
+    color: blue;
+    font-size: 20px;
+}
+
+.item:hover{
+    color: blue;
+    font-size: 20px;
+}
