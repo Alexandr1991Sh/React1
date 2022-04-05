@@ -7,7 +7,7 @@ import {Route, Routes} from "react-router-dom";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import {addPost} from "./Components/Redux/State";
+import {addPost, updateNewPostNext} from "./Components/Redux/State";
 
 
 
@@ -18,7 +18,10 @@ const App = (props) => {
                 <NavBar/>
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path='/Profile/*' element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                        <Route path='/Profile/*' element={<Profile profilePage={props.state.profilePage}
+                                                                   addPost={props.addPost}
+                                                                   updateNewPostNext={props.updateNewPostNext}
+                        />}/>
                             <Route path='/Dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>
                             <Route path='/News/*' element={<News/>}/>
                             <Route path='/Music/*' element={<Music/>}/>
