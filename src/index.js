@@ -1,9 +1,26 @@
-
+import store from "./Components/Redux/State";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./Components/Redux/State";
-import {renderEntireTree} from "./render";
+import {BrowserRouter} from "react-router-dom";
 
-renderEntireTree(state)
+let renderEntireTree = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App state={ state }
+                     addPost={store.addPost.bind(store)}
+                     updateNewPostNext={store.updateNewPostNext.bind(store)}
+                />
+            </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
+renderEntireTree(store.getState())
+store.subscribe(renderEntireTree)
 
 
 
